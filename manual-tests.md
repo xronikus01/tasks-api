@@ -79,6 +79,8 @@ curl.exe -i -X POST "http://localhost:8080/tasks" `
 
 ## 4) GET /tasks/{id}
 
+Примечание: используйте id из ответа POST (в примере — 1).
+
 ✅ OK
 ```powershell
 curl.exe -i "http://localhost:8080/tasks/1"
