@@ -22,7 +22,7 @@ go run ./cmd/server
 curl.exe -i "http://localhost:8080/health"
 ```
 
-Ожидаемо: 200 OK, тело {"status":"ok"}
+### Ожидаемо: 200 OK, тело {"status":"ok"}
 
 ❌ 405
 
@@ -30,7 +30,7 @@ curl.exe -i "http://localhost:8080/health"
 curl.exe -i -X POST "http://localhost:8080/health"
 ```
 
-Ожидаемо: 405 Method Not Allowed
+### Ожидаемо: 405 Method Not Allowed
 
 ## 2) GET /tasks
 
@@ -40,7 +40,7 @@ curl.exe -i -X POST "http://localhost:8080/health"
 curl.exe -i "http://localhost:8080/tasks"
 ```
 
-Ожидаемо: 200 OK, тело []
+### Ожидаемо: 200 OK, тело []
 
 ❌ 405
 
@@ -48,7 +48,7 @@ curl.exe -i "http://localhost:8080/tasks"
 curl.exe -i -X PATCH "http://localhost:8080/tasks"
 ```
 
-Ожидаемо: 405 Method Not Allowed
+### Ожидаемо: 405 Method Not Allowed
 
 ## 3) POST /tasks
 
@@ -63,7 +63,7 @@ curl.exe -i -X POST "http://localhost:8080/tasks" `
 
 ```
 
-Ожидаемо: 201 Created, JSON с id
+### Ожидаемо: 201 Created, JSON с id
 
 ❌ 400 (нет title)
 
@@ -75,7 +75,7 @@ curl.exe -i -X POST "http://localhost:8080/tasks" `
   --data-binary "@bad-post.json"
 
 ```
-Ожидаемо: 400 Bad Request, {"error":"title is required"}
+### Ожидаемо: 400 Bad Request, {"error":"title is required"}
 
 ## 4) GET /tasks/{id}
 
@@ -86,14 +86,14 @@ curl.exe -i -X POST "http://localhost:8080/tasks" `
 curl.exe -i "http://localhost:8080/tasks/1"
 ```
 
-Ожидаемо: 200 OK
+### Ожидаемо: 200 OK
 
 ❌ 404
 ```powershell
 curl.exe -i "http://localhost:8080/tasks/999"
 ```
 
-Ожидаемо: 404 Not Found, {"error":"task not found"}
+### Ожидаемо: 404 Not Found, {"error":"task not found"}
 
 ## 5) PUT /tasks/{id}
 
@@ -106,7 +106,7 @@ curl.exe -i -X PUT "http://localhost:8080/tasks/1" `
   --data-binary "@put.json"
 ```
 
-Ожидаемо: 200 OK
+### Ожидаемо: 200 OK
 
 ❌ 400 (пустой title)
 ```powershell
@@ -117,7 +117,7 @@ curl.exe -i -X PUT "http://localhost:8080/tasks/1" `
   --data-binary "@bad-put.json"
 ```
 
-Ожидаемо: 400 Bad Request, {"error":"title is required"}
+### Ожидаемо: 400 Bad Request, {"error":"title is required"}
 
 ## 6) DELETE /tasks/{id}
 
@@ -126,21 +126,21 @@ curl.exe -i -X PUT "http://localhost:8080/tasks/1" `
 curl.exe -i -X DELETE "http://localhost:8080/tasks/1"
 ```
 
-Ожидаемо: 204 No Content
+### Ожидаемо: 204 No Content
 
 ❌ 404
 ```powershell
 curl.exe -i -X DELETE "http://localhost:8080/tasks/999"
 ```
 
-Ожидаемо: 404 Not Found, {"error":"task not found"}
+### Ожидаемо: 404 Not Found, {"error":"task not found"}
 
 ## 7) Финальная проверка
 ```powershell
 curl.exe -i "http://localhost:8080/tasks"
 curl.exe -i "http://localhost:8080/tasks/1"
 ```
-Ожидаемо:
+### Ожидаемо:
 
 /tasks -> 200 OK, []
 
