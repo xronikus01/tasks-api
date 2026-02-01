@@ -34,6 +34,7 @@ go run ./cmd/server
   "done": false,
   "created_at": "2026-02-01T15:44:13Z"
 }
+```
 ## Ошибки
 
 Единый формат ошибок:
