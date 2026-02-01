@@ -1,0 +1,17 @@
+﻿# Go build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# temp request bodies (manual curl)
+*.json
+
+# VS Code
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
