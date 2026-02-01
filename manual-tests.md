@@ -9,6 +9,7 @@
 
 ```powershell
 go run ./cmd/server
+```
 ---
 
 ## 1) GET /health
@@ -16,6 +17,7 @@ go run ./cmd/server
 ✅ OK
 ```powershell
 curl.exe -i "http://localhost:8080/health"
+```
 ❌ 405
 
 curl.exe -i -X POST "http://localhost:8080/health"
